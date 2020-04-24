@@ -1,0 +1,7 @@
+{
+  "appId": "ds.p3.app",
+  "appName": "ds_p3_mobile_app",
+  "bundledWebRuntime": false,
+  "webDir": "www",
+  "npmClient": "npm"
+}

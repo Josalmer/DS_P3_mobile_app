@@ -1,0 +1,14 @@
+<ion-content>
+  <app-page-layout>
+      <ion-row layout-position="main">
+        <ion-col>
+          <ion-img id="logo" src="../../../../assets/img/logo.png" alt=""></ion-img>
+        </ion-col>
+      </ion-row>
+      <div layout-position="content">
+        <app-login-form (changeTab)="selectedTab = $event" *ngIf="selectedTab == 'login'"></app-login-form>
+        <app-register-form (changeTab)="selectedTab = $event" *ngIf="selectedTab == 'createAccount'"></app-register-form>
+        <app-password-form (changeTab)="selectedTab = $event" *ngIf="selectedTab == 'forgotPassword'"></app-password-form>
+      </div>
+  </app-page-layout>
+</ion-content>

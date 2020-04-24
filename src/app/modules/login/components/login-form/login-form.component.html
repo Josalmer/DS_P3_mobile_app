@@ -1,0 +1,22 @@
+<form padding [formGroup]="form" (submit)="login()">
+    <div class="top-margin" text-center>
+      <ion-input class="input" formControlName="email" type="text" placeholder="Email" text-center margin-bottom></ion-input>
+      <ion-input class="input" formControlName="password" type="password" placeholder="Contraseña" text-center margin-bottom></ion-input>
+      <div text-center class="alert">
+        <ion-text color="danger">{{ submitError }} </ion-text>
+      </div>
+    </div>
+    <div text-center>
+      <ion-button class="btn" type="submit">
+        Iniciar sesión
+      </ion-button>
+      <div class="container">
+        <div margin-top>
+          <span (click)="createAccount()">Crear cuenta</span>
+        </div>
+        <div margin-top>
+          <span (click)="forgotPassword()">He olvidado mi contraseña</span>
+        </div>
+      </div>
+    </div>
+</form>

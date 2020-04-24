@@ -1,0 +1,24 @@
+<form padding [formGroup]="form" (submit)="createAccount()">
+  <div class="top-margin container" text-center>
+    <ion-text>Registro</ion-text>
+      <ion-input class="input" formControlName="email" type="text" placeholder="Email" text-center margin-bottom></ion-input>
+      <ion-input class="input" formControlName="name" type="text" placeholder="Nombre" text-center margin-bottom></ion-input>
+      <ion-input class="input" formControlName="surname" type="text" placeholder="Apellidos" text-center margin-bottom></ion-input>
+      <ion-input class="input" formControlName="password" type="password" placeholder="Contraseña" text-center margin-bottom></ion-input>
+      <ion-input class="input" formControlName="confirmPass" type="password" placeholder="Repita contraseña" text-center margin-bottom></ion-input>
+
+      <ion-text color="danger" *ngIf="form.get('email').hasError('email') && form.get('email').touched">Formato de email incorrecto</ion-text>
+      <ion-text color="danger" *ngIf="form.get('password').hasError('minlength') && form.get('password').touched">Contraseña mínimo 6 caracteres</ion-text>
+      <ion-text color="danger" *ngIf="form.get('phone').hasError('pattern') && form.get('phone').touched">Formato de teléfono incorrecto</ion-text>
+      <ion-text color="danger" *ngIf="form.hasError('notSame') && form.get('confirmPass').touched">Las contraseñas no coinciden</ion-text>
+      <ion-text color="danger">{{ submitError }} </ion-text>
+  </div>
+  <div text-center>
+      <ion-button [disabled]="form.invalid" class="btn" type="submit">
+          Darse de alta
+      </ion-button>
+      <div class="container" margin-top>
+          <span (click)="backToLogin() ">Volver a inicio de sesión</span>
+      </div>
+  </div>
+</form>

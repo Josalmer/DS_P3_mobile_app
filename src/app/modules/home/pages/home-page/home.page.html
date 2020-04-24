@@ -1,0 +1,25 @@
+<ion-content>
+  <app-page-layout>
+    <div layout-position="main">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <ion-row>
+        <ion-col>
+          <ion-img id="logo" src="../../../../assets/img/logo.png" alt=""></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row class="container">
+        <h2 class="title">Home page</h2>
+      </ion-row>
+    </div>
+
+
+    <div layout-position="content">
+      <ion-row class="container">
+        Content
+      </ion-row>
+    </div>
+
+  </app-page-layout>
+</ion-content>

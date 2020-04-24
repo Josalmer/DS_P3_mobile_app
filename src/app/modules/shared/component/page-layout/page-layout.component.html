@@ -1,0 +1,11 @@
+<div class="page-layout-wrapper">
+  <div class="page-layout-main">
+    <ng-content select='[layout-position="main"]'></ng-content>
+  </div>
+  <div class="page-layout-content" [ngClass]="{'scrollable': layoutContentScrollable}">
+    <ng-content select='[layout-position="content"]'></ng-content>
+  </div>
+  <div class="page-layout-footer">
+    <ng-content select='[layout-position="footer"]'></ng-content>
+  </div>
+</div>

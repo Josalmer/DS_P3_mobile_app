@@ -1,0 +1,14 @@
+.page-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-layout-content {
+  flex: 1;
+  &.scrollable { overflow: auto; }
+}
+
+ion-grid, ion-row {
+  height: 100%;
+}

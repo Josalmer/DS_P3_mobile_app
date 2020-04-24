@@ -1,0 +1,34 @@
+<ion-content>
+  <app-page-layout>
+    <ion-row layout-position="main">
+      <ion-col>
+        <h2 class="title">Perfil de usuario</h2>
+      </ion-col>
+    </ion-row>
+    <div layout-position="content" *ngIf="user != undefined">
+      <form padding [formGroup]="form">
+        <ion-row>
+          <ion-col class="container-form">
+            <label>Email</label>
+            <ion-input class="input" formControlName="email" type="text" text-center margin-bottom></ion-input>
+
+            <label>Nombre</label>
+            <ion-input class="input" formControlName="name" type="text" text-center margin-bottom></ion-input>
+
+            <label>Apellidos</label>
+            <ion-input class="input" formControlName="surname" type="text" text-center margin-bottom></ion-input>
+
+            <ion-button class="btn" (click)="editProfile()">
+              Editar perfil
+            </ion-button>
+
+            <ion-button class="btn" (click)="logout()" color="danger">
+              Logout
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </app-page-layout>
+</ion-content>
