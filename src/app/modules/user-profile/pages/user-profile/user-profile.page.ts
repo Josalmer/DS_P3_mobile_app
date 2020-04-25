@@ -1,19 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/modules/shared/services/login.service';
 import { SessionService } from 'src/app/modules/shared/services/session.service';
 import { NavController } from '@ionic/angular';
 import { UserProfileService } from '../../services/user-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.page.html'
 })
-export class UserProfilePage implements OnInit, OnDestroy {
+export class UserProfilePage implements OnInit {
 
   user: any;
-  userSubscription: Subscription;
   form: FormGroup;
   submitError: string;
 
@@ -30,7 +28,7 @@ export class UserProfilePage implements OnInit, OnDestroy {
   }
 
   loadUser(): void {
-    this.userSubscription = this.userProfileService.getUserProfile().subscribe(
+    this.userProfileService.getUserProfile().subscribe(
       response => {
         this.user = response;
         this.createForm();
@@ -67,11 +65,5 @@ export class UserProfilePage implements OnInit, OnDestroy {
         this.navCtrl.navigateRoot(['/login']);
       }
     );
-  }
-
-  ngOnDestroy(): void {
-    if (this.userSubscription) {
-      this.userSubscription.unsubscribe();
-    }
   }
 }

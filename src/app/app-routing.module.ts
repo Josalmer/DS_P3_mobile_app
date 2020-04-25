@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', component: MenuComponent, canActivate: [AuthGuard], children: [
     { path: 'home', loadChildren: () => import('./modules/home/home.module').then( m => m.HomePageModule)},
     { path: 'profile', loadChildren: () => import('./modules/user-profile/user-profile.module').then( m => m.UserProfileModule)},
+    { path: 'categories', loadChildren: () => import('./modules/categories/categories.module').then( m => m.CategoriesModule)},
     ]
   },
   { path: 'login', loadChildren: () => import('./modules/login/login.module').then( m => m.LoginPageModule)},

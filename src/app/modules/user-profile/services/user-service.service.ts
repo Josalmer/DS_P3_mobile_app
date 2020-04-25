@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { tap, filter } from 'rxjs/operators';
-import { SessionService } from '../../shared/services/session.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'

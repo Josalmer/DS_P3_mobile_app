@@ -45,7 +45,7 @@ export class RegisterFormComponent implements OnInit {
         };
 
         this.loginService.createAccount(newUserObject).pipe(
-            switchMap(response => this.loginService.login(this.form.value.username, this.form.value.password))
+            switchMap(response => this.loginService.login(this.form.value.email, this.form.value.password))
         ).subscribe(
             _ => { },
             error => {
