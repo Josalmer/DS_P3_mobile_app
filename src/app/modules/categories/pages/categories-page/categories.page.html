@@ -2,11 +2,21 @@
   <app-page-layout>
 
     <div layout-position="main">
-        Nombre de la sección
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      Nombre de la sección
     </div>
 
     <div layout-position="content">
-        Contenido de la sección y es scrollable
+      <ion-row *ngFor="let category of categories">
+        <ion-card>
+          <ion-card-title>
+            {{ category.name }}
+          </ion-card-title>
+          <img *ngIf="category.image != undefined" [src]="category.image" alt="">
+        </ion-card>
+      </ion-row>
     </div>
 
   </app-page-layout>
