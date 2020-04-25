@@ -139,3 +139,16 @@ h3, h5{
   margin: auto;
   max-width: 85%;
 }
+
+ion-card.category-card{
+  width: 85%;
+  margin: auto;
+  background-color: grey;
+  text-align: center;
+  margin-bottom: 30px;
+
+  ion-card-title{
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+}

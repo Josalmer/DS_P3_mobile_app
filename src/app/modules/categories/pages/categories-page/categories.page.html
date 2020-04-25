@@ -5,16 +5,16 @@
       <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
-      Nombre de la sección
+      <ion-row class="container">
+        <h2 class="title">Categorías</h2>
+      </ion-row>
     </div>
 
     <div layout-position="content">
       <ion-row *ngFor="let category of categories">
-        <ion-card>
-          <ion-card-title>
-            {{ category.name }}
-          </ion-card-title>
-          <img *ngIf="category.image != undefined" [src]="category.image" alt="">
+        <ion-card class="category-card">
+          <img [src]="category.image" alt="">
+          <ion-card-title>{{ category.name }}</ion-card-title>
         </ion-card>
       </ion-row>
     </div>
