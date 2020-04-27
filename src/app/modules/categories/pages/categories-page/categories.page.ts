@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../services/category-service.service';
+import { CategoryService } from '../../../shared/services/category-service.service';
 import { ArrayType } from '@angular/compiler';
 
 @Component({
@@ -8,7 +8,7 @@ import { ArrayType } from '@angular/compiler';
 })
 export class CategoriesPage implements OnInit {
 
-  categories: any;
+  public categories: any;
 
   constructor(
     private categoryService: CategoryService
@@ -22,7 +22,7 @@ export class CategoriesPage implements OnInit {
     this.categoryService.getCategories().subscribe(
       response => {
         this.categories = response.categories;
-        console.log(this.categories);
+        //console.log(this.categories);
         if(event) {
           event.target.complete();
         }

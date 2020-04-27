@@ -10,11 +10,10 @@
       </ion-row>
     </div>
 
-    <div layout-position="content">
-      <ion-row *ngFor="let category of categories">
-        <ion-card class="category-card" [routerLink]="['/category',category.id]">
-          <img *ngIf="category.image != undefined " [src]="category.image" alt="">
-          <ion-card-title>{{ category.name }}</ion-card-title>
+    <div layout-position="content"> Mostrará productos de categoría
+      <ion-row *ngFor="let product of products">
+        <ion-card class="category-card">
+          <ion-card-title>{{ product.name }}</ion-card-title>
         </ion-card>
       </ion-row>
     </div>
