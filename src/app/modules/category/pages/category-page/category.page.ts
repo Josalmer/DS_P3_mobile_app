@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../shared/services/category-service.service';
-import { ArrayType } from '@angular/compiler';
 import { ActivatedRoute } from '@angular/router';
-//import { categories } from '../../../categories/pages/categories-page/categories.page';
 
 @Component({
   selector: 'app-category',
@@ -19,9 +17,7 @@ export class CategoryPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params=>{
-      this.id = 1;// [+params.get('id')];
-    })
+    this.id = +this.route.snapshot.paramMap.get('categoryId');
     console.log("Id: " + this.id);
     this.loadProducts();
   }
@@ -29,8 +25,7 @@ export class CategoryPage implements OnInit {
   loadProducts(event?): void {
     this.categoryService.getCategory(this.id).subscribe(
       response => {
-        //this.products = response.categories;
-        console.log("Respuesta: " + response);
+        this.products = response.products;
         if(event) {
           event.target.complete();
         }

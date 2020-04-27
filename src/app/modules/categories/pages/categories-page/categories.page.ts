@@ -8,7 +8,7 @@ import { ArrayType } from '@angular/compiler';
 })
 export class CategoriesPage implements OnInit {
 
-  public categories: any;
+  categories: any;
 
   constructor(
     private categoryService: CategoryService

@@ -16,6 +16,6 @@ export class CategoryService {
     }
 
     getCategory(id): Observable<any> {
-        return this.http.get('category/' + id);
+        return this.http.get('categories/' + id);
     }
 }
