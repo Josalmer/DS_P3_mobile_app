@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../../shared/services/category-service.service';
+import { CategoryService } from '../../../shared/services/category.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,9 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: 'category.page.html'
 })
 export class CategoryPage implements OnInit {
-
-  products: any;
-  id: any;
+  category: any;
 
   constructor(
     private categoryService: CategoryService,
@@ -17,15 +15,16 @@ export class CategoryPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('categoryId');
-    console.log("Id: " + this.id);
-    this.loadProducts();
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      this.loadProducts(id);
+    });
   }
 
-  loadProducts(event?): void {
-    this.categoryService.getCategory(this.id).subscribe(
+  loadProducts(id, event?): void {
+    this.categoryService.getCategory(id).subscribe(
       response => {
-        this.products = response.products;
+        this.category = response;
         if(event) {
           event.target.complete();
         }
@@ -34,7 +33,7 @@ export class CategoryPage implements OnInit {
   }
 
   doRefresh(event): void {
-    this.loadProducts(event);
+    this.loadProducts(this.category.id, event);
    }
 
 }

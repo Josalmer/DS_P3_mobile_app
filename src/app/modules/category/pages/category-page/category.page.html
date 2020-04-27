@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content *ngIf="category">
   <app-page-layout>
 
     <div layout-position="main">
@@ -6,12 +6,12 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
       <ion-row class="container">
-        <h2 class="title">Categorías</h2>
+        <h2 class="title"> {{ category.name }} </h2>
       </ion-row>
     </div>
 
-    <div layout-position="content"> Mostrará productos de categoría
-      <ion-row *ngFor="let product of products">
+    <div layout-position="content">
+      <ion-row *ngFor="let product of category.products">
         <ion-card class="category-card">
           <ion-card-title>{{ product.name }}</ion-card-title>
         </ion-card>

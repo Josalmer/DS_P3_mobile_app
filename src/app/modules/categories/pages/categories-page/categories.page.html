@@ -12,7 +12,7 @@
 
     <div layout-position="content">
       <ion-row *ngFor="let category of categories">
-        <ion-card class="category-card" [routerLink]="['/category/',category.id]">
+        <ion-card class="category-card" (click)="navigateToCategory(category.id)">
           <img *ngIf="category.image != undefined " [src]="category.image" alt="">
           <ion-card-title>{{ category.name }}</ion-card-title>
         </ion-card>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../../shared/services/category-service.service';
-import { ArrayType } from '@angular/compiler';
+import { CategoryService } from '../../../shared/services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -11,7 +11,8 @@ export class CategoriesPage implements OnInit {
   categories: any;
 
   constructor(
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -22,7 +23,6 @@ export class CategoriesPage implements OnInit {
     this.categoryService.getCategories().subscribe(
       response => {
         this.categories = response.categories;
-        //console.log(this.categories);
         if(event) {
           event.target.complete();
         }
@@ -32,6 +32,10 @@ export class CategoriesPage implements OnInit {
 
   doRefresh(event): void {
     this.loadCateogories(event);
+   }
+
+   navigateToCategory(id: string): void {
+    this.router.navigateByUrl('/category/' + id);
    }
 
 }
