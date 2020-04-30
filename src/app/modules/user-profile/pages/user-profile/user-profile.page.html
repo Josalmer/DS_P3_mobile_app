@@ -18,6 +18,9 @@
             <label>Apellidos</label>
             <ion-input class="input" formControlName="surname" type="text" text-center margin-bottom></ion-input>
 
+            <label>Saldo </label>
+            <span>{{ user.money }}</span>
+
             <ion-button class="btn" (click)="editProfile()">
               Editar perfil
             </ion-button>
