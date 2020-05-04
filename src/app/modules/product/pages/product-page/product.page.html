@@ -1,0 +1,17 @@
+<ion-content *ngIf="product">
+  <app-page-layout>
+
+    <div layout-position="main">
+      <ion-row class="container">
+        <h2 class="title"> {{ product.name }} </h2>
+      </ion-row>
+    </div>
+
+    <div layout-position="content">
+        <ion-card class="category-card">
+          <ion-card-title>{{ product.name }}</ion-card-title>
+        </ion-card>
+    </div>
+
+  </app-page-layout>
+</ion-content>
