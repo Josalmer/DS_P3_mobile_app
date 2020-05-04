@@ -12,7 +12,7 @@
 
     <div layout-position="content">
       <ion-row *ngFor="let product of category.products">
-        <ion-card class="category-card">
+        <ion-card class="category-card" (click)="navigateToProduct(product.id)">
           <ion-card-title>{{ product.name }}</ion-card-title>
         </ion-card>
       </ion-row>

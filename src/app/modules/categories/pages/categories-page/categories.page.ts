@@ -13,7 +13,7 @@ export class CategoriesPage implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadCateogories();
@@ -23,7 +23,7 @@ export class CategoriesPage implements OnInit {
     this.categoryService.getCategories().subscribe(
       response => {
         this.categories = response.categories;
-        if(event) {
+        if (event) {
           event.target.complete();
         }
       }
@@ -32,10 +32,10 @@ export class CategoriesPage implements OnInit {
 
   doRefresh(event): void {
     this.loadCateogories(event);
-   }
+  }
 
-   navigateToCategory(id: string): void {
+  navigateToCategory(id: string): void {
     this.router.navigateByUrl('/category/' + id);
-   }
+  }
 
 }
