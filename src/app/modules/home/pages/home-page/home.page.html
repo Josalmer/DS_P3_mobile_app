@@ -16,8 +16,10 @@
 
 
     <div layout-position="content">
-      <ion-row class="container">
-        Content
+      <ion-row *ngFor="let product of products">
+        <ion-card class="category-card">
+          <ion-card-title>{{ product.name }}</ion-card-title>
+        </ion-card>
       </ion-row>
     </div>
 

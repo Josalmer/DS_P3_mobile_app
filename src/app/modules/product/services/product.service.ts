@@ -19,4 +19,9 @@ export class ProductService {
         const params = {"product_id" : id};
         return this.http.patch('add_product_to_current_user_shopping_basket', params);
     }
+
+    removeProductToBasket(id): Observable<any> {
+        const params = {"product_id" : id};
+        return this.http.patch('remove_product_from_current_user_shopping_basket', params);
+    }
 }

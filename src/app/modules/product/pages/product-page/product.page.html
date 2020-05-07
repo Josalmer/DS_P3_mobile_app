@@ -10,10 +10,12 @@
     <div layout-position="content">
         <p>{{ product.description }}</p>
         <p>Coste: {{ product.price }} €</p>
-        <ion-card class="category-card" (click)="addProductToBasket()">
+        <ion-card  *ngIf="!has_product" class="category-card" (click)="addProductToBasket()">
           <ion-card-title>Añadir a la cesta</ion-card-title>
         </ion-card>
+        <ion-card *ngIf="has_product" class="category-card" (click)="removeProductToBasket()">
+          <ion-card-title>Quitar de la cesta</ion-card-title>
+        </ion-card>
     </div>
-
   </app-page-layout>
 </ion-content>
