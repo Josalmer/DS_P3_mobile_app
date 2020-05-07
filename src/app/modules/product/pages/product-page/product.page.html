@@ -3,13 +3,15 @@
 
     <div layout-position="main">
       <ion-row class="container">
-        <h2 class="title"> {{ product.name }} </h2>
+        <h1 class="title"> {{ product.name }} </h1>
       </ion-row>
     </div>
 
     <div layout-position="content">
-        <ion-card class="category-card">
-          <ion-card-title>{{ product.name }}</ion-card-title>
+        <p>{{ product.description }}</p>
+        <p>Coste: {{ product.price }} €</p>
+        <ion-card class="category-card" (click)="addProductToBasket()">
+          <ion-card-title>Añadir a la cesta</ion-card-title>
         </ion-card>
     </div>
 

@@ -30,4 +30,13 @@ export class ProductPage implements OnInit {
     )
   }
 
+  addProductToBasket(): void {
+    console.log("Añadiendo producto a la cesta");
+    this.productService.addProductToBasket(this.product.id).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
 }

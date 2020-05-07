@@ -14,4 +14,9 @@ export class ProductService {
     getProduct(id): Observable<any> {
         return this.http.get('products/' + id);
     }
+
+    addProductToBasket(id): Observable<any> {
+        const params = {"product_id" : id};
+        return this.http.patch('add_product_to_current_user_shopping_basket', params);
+    }
 }
