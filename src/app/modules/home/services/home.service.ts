@@ -15,8 +15,7 @@ export class HomeService {
         return this.http.get('shopping_baskets');
     }
 
-    removeProductToBasket(id): Observable<any> {
-        const params = {"product_id" : id};
-        return this.http.patch('remove_product_from_current_user_shopping_basket', params);
+    buyAll(): Observable<any> {
+        return this.http.patch('buy_all_shopping_basket_products', {});
     }
 }

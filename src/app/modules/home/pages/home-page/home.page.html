@@ -10,17 +10,22 @@
         </ion-col>
       </ion-row>
       <ion-row class="container">
-        <h2 class="title">Home page</h2>
+        <h2 class="title">Cesta de la compra</h2>
       </ion-row>
     </div>
 
-
-    <div layout-position="content">
+    <div layout-position="content" *ngIf="products">
       <ion-row *ngFor="let product of products">
-        <ion-card class="category-card">
-          <ion-card-title>{{ product.name }}</ion-card-title>
+        <ion-card class="category-card" (click)="navigateToProduct(product.id)">
+          <ion-card-title>{{ product.name }} {{ product.price | currency:'EUR':true }}</ion-card-title>
         </ion-card>
       </ion-row>
+      <ion-card class="buy-card" (click)="buyAll()" *ngIf="products.length > 0">
+        <ion-card-title>Comprar ({{ totalCost | currency:'EUR':true }})</ion-card-title>
+      </ion-card>
+      <ion-card class="buy-card" *ngIf="!(products.length > 0)">
+        <ion-card-title>Añade productos a la cesta</ion-card-title>
+      </ion-card>
     </div>
 
   </app-page-layout>
