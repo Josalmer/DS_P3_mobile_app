@@ -8,14 +8,18 @@
     </div>
 
     <div layout-position="content">
+      <ion-row style="padding-left: 20px; padding-right: 20px; padding-bottom: 10px;">
         <p>{{ product.description }}</p>
-        <p>Coste: {{ product.price }} €</p>
-        <ion-card  *ngIf="!has_product" class="category-card" (click)="addProductToBasket()">
-          <ion-card-title>Añadir a la cesta</ion-card-title>
-        </ion-card>
-        <ion-card *ngIf="has_product" class="category-card" (click)="removeProductToBasket()">
-          <ion-card-title>Quitar de la cesta</ion-card-title>
-        </ion-card>
+      </ion-row>
+      <ion-row style="display: block; text-align: center;">
+        <p>Coste: {{ product.price | currency:'EUR':true }}</p>
+      </ion-row>
+      <ion-card *ngIf="!has_product" class="category-card" (click)="addProductToBasket()">
+        <ion-card-title>Añadir a la cesta</ion-card-title>
+      </ion-card>
+      <ion-card *ngIf="has_product" class="category-card" (click)="removeProductToBasket()">
+        <ion-card-title>Quitar de la cesta</ion-card-title>
+      </ion-card>
     </div>
   </app-page-layout>
 </ion-content>

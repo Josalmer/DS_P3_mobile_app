@@ -51,7 +51,7 @@ export class ProductPage implements OnInit {
     this.productService.removeProductToBasket(this.product.id).subscribe(
       response => {
         this.has_product = !this.has_product;
-        this.alert.showMessage("Producto eliminado de la cesta", "primary");
+        this.alert.showMessage("Producto eliminado de la cesta", "danger");
       },
       error => {
         this.alert.showMessage("No se ha podido eliminar de la cesta", "alert");
