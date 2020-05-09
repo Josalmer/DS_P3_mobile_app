@@ -21,7 +21,7 @@ export class HomePage {
     this.productService.getBasketProducts().subscribe(
       response => {
         //this.products = response;
-        console.log("respuesta=> " + response);
+        console.log("respuesta=> ", response);
       }
     )
   }

@@ -103,10 +103,10 @@ ion-grid{
 }
 
 #logo{
-  max-width: 30%;
+  max-width: 30% !important;
   display: block;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 @media (max-width: 600px) {
