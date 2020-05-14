@@ -18,8 +18,14 @@
             <label>Apellidos</label>
             <ion-input class="input" formControlName="surname" type="text" text-center margin-bottom></ion-input>
 
-            <label>Saldo </label>
-            <span>{{ user.money }}</span>
+            <label style="display: block; text-align: center;">Saldo</label>
+            <ion-card class="money-card">
+              <ion-card-title>{{ user.money | currency:'EUR':true }} </ion-card-title>
+            </ion-card>
+
+            <ion-button class="btn" (click)="rechargeCash()" color="warning">
+              Comprar saldo
+            </ion-button>
 
             <ion-button class="btn" (click)="editProfile()">
               Editar perfil

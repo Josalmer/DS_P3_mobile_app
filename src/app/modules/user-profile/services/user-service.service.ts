@@ -18,4 +18,9 @@ export class UserProfileService {
     updateProfile(params) {
         return this.http.patch('user_profile', params);
     }
+
+    recharge(cash) {
+        const params = {"recharge" : cash};
+        return this.http.patch('add_cash', params);
+    }
 }
