@@ -23,6 +23,10 @@
               <ion-card-title>{{ user.money | currency:'EUR':true }} </ion-card-title>
             </ion-card>
 
+            <ion-button class="btn" (click)="rechargeCash()" color="warning">
+              Comprar saldo
+            </ion-button>
+
             <ion-button class="btn" (click)="editProfile()">
               Editar perfil
             </ion-button>

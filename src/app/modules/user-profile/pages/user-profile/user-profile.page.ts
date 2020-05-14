@@ -4,6 +4,7 @@ import { SessionService } from 'src/app/modules/shared/services/session.service'
 import { NavController } from '@ionic/angular';
 import { UserProfileService } from '../../services/user-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-profile',
@@ -20,7 +21,8 @@ export class UserProfilePage implements OnInit {
     private loginService: LoginService,
     private sessionService: SessionService,
     private navCtrl: NavController,
-    private userProfileService: UserProfileService
+    private userProfileService: UserProfileService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -40,19 +42,52 @@ export class UserProfilePage implements OnInit {
     if (this.form) { return; }
 
     this.form = this.fb.group({
-        email: [this.user.email, [Validators.required, Validators.email]],
-        name: [this.user.name, [Validators.required]],
-        surname: [this.user.surname, [Validators.required]]
+      email: [this.user.email, [Validators.required, Validators.email]],
+      name: [this.user.name, [Validators.required]],
+      surname: [this.user.surname, [Validators.required]]
     });
+  }
+
+  async rechargeCash() {
+    const alert = await this.alertController.create({
+      header: 'Solicitar saldo',
+      inputs: [
+        {
+          name: 'number',
+          type: 'number',
+          placeholder:"0"
+        }
+      ],
+      buttons: [
+        {
+          text: 'Solicitar',
+          handler: (alertData) => {
+            this.userProfileService.recharge(alertData.number).subscribe(
+              response => {
+                console.log(response);
+              }
+            );
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   editProfile(): void {
     this.submitError = undefined;
 
     const newUserObject = {
-        email: this.form.value.email,
-        name: this.form.value.name,
-        surname: this.form.value.surname
+      email: this.form.value.email,
+      name: this.form.value.name,
+      surname: this.form.value.surname
     };
 
     this.userProfileService.updateProfile(newUserObject).subscribe();
