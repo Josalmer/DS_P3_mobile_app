@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from '../../services/home.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastMessageService } from 'src/app/modules/shared/services/toast-messages.service';
 
 @Component({
@@ -15,11 +15,14 @@ export class HomePage {
   constructor(
     private productService: HomeService,
     private alert: ToastMessageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.loadProduct();
+    this.route.params.subscribe(_ => {
+      this.loadProduct();
+    });
   }
 
   loadProduct(event?): void {

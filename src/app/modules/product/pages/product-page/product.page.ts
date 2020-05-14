@@ -30,7 +30,6 @@ export class ProductPage implements OnInit {
       response => {
         this.product = response;
         this.has_product = this.product.belongs_to_user_shopping_basket;
-        console.log(this.product);
       }
     )
   }

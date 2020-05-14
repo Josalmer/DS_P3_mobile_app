@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { UserProfileService } from '../../services/user-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,11 +23,14 @@ export class UserProfilePage implements OnInit {
     private sessionService: SessionService,
     private navCtrl: NavController,
     private userProfileService: UserProfileService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.loadUser();
+    this.route.params.subscribe(_ => {
+      this.loadUser();
+    });
   }
 
   loadUser(): void {
@@ -55,17 +59,15 @@ export class UserProfilePage implements OnInit {
         {
           name: 'number',
           type: 'number',
-          placeholder:"0"
+          placeholder: '0'
         }
       ],
       buttons: [
         {
           text: 'Solicitar',
           handler: (alertData) => {
-            this.userProfileService.recharge(alertData.number).subscribe(
-              response => {
-                console.log(response);
-              }
+            this.userProfileService.recharge(parseFloat(alertData.number)).subscribe(
+              response => this.user = response
             );
           }
         },
