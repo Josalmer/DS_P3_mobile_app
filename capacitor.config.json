@@ -3,5 +3,6 @@
   "appName": "ds_p3_mobile_app",
   "bundledWebRuntime": false,
   "webDir": "www",
-  "npmClient": "npm"
+  "npmClient": "npm",
+  "linuxAndroidStudioPath": "/home/jose/android-studio/bin/studio.sh"
 }
